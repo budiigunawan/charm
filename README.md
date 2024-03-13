@@ -1,15 +1,15 @@
 # CHARM
 
-Charm is CRM (Customer Relationship Management) that make you and your customer happy.
+More than Customer Relationship Management
 
 ## Feature
 
 ### Contacts
 
-Save and manage customer contacts
+Manage contacts
 
 ## Tech Stacks
 
 - HTML
-- CSS
+- TailwindCSS
 - JavaScript
