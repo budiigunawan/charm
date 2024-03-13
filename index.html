@@ -14,55 +14,149 @@
   </head>
   <body>
     <header>This is header</header>
-    <main>
-      <h1 class="text-3xl font-bold underline">Contacts (123)</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Labels</th>
-            <th>Birtday</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Budi Gunawan</td>
-            <td>budigunawan@mail.com</td>
-            <td>+62812 3456 7890</td>
-            <td>Family</td>
-            <td>31 Dec 1999</td>
-            <td>
-              <button>edit</button>
-              <button>delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>John Doe</td>
-            <td>johndoe@mail.com</td>
-            <td>+62857 1234 5678</td>
-            <td>Friend</td>
-            <td>31 Dec 2000</td>
-            <td>
-              <button>edit</button>
-              <button>delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Jane Doe</td>
-            <td>janedoe@mail.com</td>
-            <td>+62898 7654 3210</td>
-            <td>Work</td>
-            <td>31 Dec 2001</td>
-            <td>
-              <button>edit</button>
-              <button>delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <main class="px-4 md:p-10 mx-auto w-full">
+      <div class="p-8 bg-gray-100 rounded-md">
+        <h1 class="font-sans font-semibold text-2xl mb-4">
+          Contacts <span class="text-base">(3)</span>
+        </h1>
+        <table class="w-full items-center bg-transparent">
+          <thead class="border-b border-gray-400">
+            <tr>
+              <th class="py-4 text-left">Name</th>
+              <th class="py-4 text-left">Email</th>
+              <th class="py-4 text-left">Phone Number</th>
+              <th class="py-4 text-left">Labels</th>
+              <th class="py-4 text-left">Birtday</th>
+              <th class="py-4 text-left"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4 flex items-center"
+              >
+                <img
+                  src="https://i.pravatar.cc/150?img=53"
+                  alt="Budi Gunawan"
+                  class="h-12 w-12 rounded-full border"
+                />
+                <span class="ml-3 font-bold"> Budi Gunawan </span>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                budigunawan@mail.com
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                +62812 3456 7890
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-regular border-transparent bg-teal-200"
+                >
+                  Family
+                </div>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                31 Dec 1999
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <a href="#">edit</a>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4 flex items-center"
+              >
+                <img
+                  src="https://i.pravatar.cc/150?img=56"
+                  alt="John Doe"
+                  class="h-12 w-12 rounded-full border"
+                />
+                <span class="ml-3 font-bold"> John Doe </span>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                johndoe@mail.com
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                +62857 1234 5678
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-regular border-transparent bg-cyan-200"
+                >
+                  Friend
+                </div>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                31 Dec 2000
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <a href="#">edit</a>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4 flex items-center"
+              >
+                <img
+                  src="https://i.pravatar.cc/150?img=45"
+                  alt="Jane Doe"
+                  class="h-12 w-12 rounded-full border"
+                />
+                <span class="ml-3 font-bold"> Jane Doe </span>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                janedoe@mail.com
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                +62898 7654 3210
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <div
+                  class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-regular border-transparent bg-amber-200"
+                >
+                  Work
+                </div>
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                31 Dec 2001
+              </td>
+              <td
+                class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap py-4"
+              >
+                <a href="#">edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
     <footer>This is footer</footer>
     <script src="index.js"></script>
