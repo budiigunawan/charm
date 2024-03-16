@@ -6,6 +6,7 @@ const contacs = [
     phoneNumber: '6281234567890',
     labels: ['Family'],
     birthday: '31/12/2000',
+    avatar: 'https://i.pravatar.cc/150?img=45',
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const contacs = [
     phoneNumber: '6285712345678',
     labels: ['Friend'],
     birthday: '31/12/2001',
+    avatar: 'https://i.pravatar.cc/150?img=45',
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const contacs = [
     phoneNumber: '6289876543210',
     labels: ['Work'],
     birthday: '31/12/1999',
+    avatar: 'https://i.pravatar.cc/150?img=45',
   },
 ];
 
