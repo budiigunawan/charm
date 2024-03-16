@@ -13,3 +13,7 @@ Manage contacts
 - HTML
 - TailwindCSS
 - JavaScript
+
+## Previews
+
+![desktop-preview](/images/desktop-preview.jpg)
