@@ -1,11 +1,11 @@
-const contacs = [
+const contacts = [
   {
     id: 1,
     fullName: 'Budi Indra Gunawan',
     email: 'budigunawan@mail.com',
     phoneNumber: '6281234567890',
     labels: ['Family'],
-    birthday: '31/12/2000',
+    birthday: '1995-12-17T03:24:00',
     avatar: 'https://i.pravatar.cc/150?img=45',
   },
   {
@@ -14,7 +14,7 @@ const contacs = [
     email: 'johndoe@mail.com',
     phoneNumber: '6285712345678',
     labels: ['Friend'],
-    birthday: '31/12/2001',
+    birthday: '1995-12-17T03:24:00',
     avatar: 'https://i.pravatar.cc/150?img=45',
   },
   {
@@ -23,10 +23,10 @@ const contacs = [
     email: 'janedoe@mail.com',
     phoneNumber: '6289876543210',
     labels: ['Work'],
-    birthday: '31/12/1999',
+    birthday: '1995-12-17T03:24:00',
     avatar: 'https://i.pravatar.cc/150?img=45',
   },
 ];
 
-console.log(contacs, 'this is contacts');
-console.log(contacs[0], 'first index of contacts');
+console.log(contacts, 'this is contacts');
+console.log(contacts[0], 'first index of contacts');
