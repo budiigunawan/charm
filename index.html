@@ -11,14 +11,27 @@
     <meta name="author" content="Budi Indra Gunawan" />
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
   </head>
   <body>
-    <header>This is header</header>
+    <!-- <header>This is header</header> -->
     <main class="px-4 md:p-10 mx-auto w-full">
       <div class="p-8 bg-gray-100 rounded-md">
-        <h1 class="font-sans font-semibold text-2xl mb-4">
-          Contacts <span class="text-base">(3)</span>
-        </h1>
+        <div class="flex justify-between items-center mb-5">
+          <h1 class="font-sans font-semibold text-2xl">
+            Contacts <span class="text-base">(3)</span>
+          </h1>
+          <a
+            href="/new-contact/"
+            class="w-64 h-10 bg-indigo-600 rounded-md text-gray-100 py-2 text-center"
+          >
+            <i class="fas fa-plus mr-1"></i>
+            Add contact
+          </a>
+        </div>
         <table class="w-full items-center bg-transparent">
           <thead class="border-b border-gray-400">
             <tr>
@@ -69,8 +82,12 @@
               <td
                 class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
               >
-                <a href="#">edit</a>
-                <a href="#">delete</a>
+                <button>
+                  <i class="fas fa-edit" title="edit"></i>
+                </button>
+                <button>
+                  <i class="fas fa-trash-alt" title="delete"></i>
+                </button>
               </td>
             </tr>
             <tr>
@@ -111,8 +128,12 @@
               <td
                 class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
               >
-                <a href="#">edit</a>
-                <a href="#">delete</a>
+                <button>
+                  <i class="fas fa-edit" title="edit"></i>
+                </button>
+                <button>
+                  <i class="fas fa-trash-alt" title="delete"></i>
+                </button>
               </td>
             </tr>
             <tr>
@@ -153,15 +174,19 @@
               <td
                 class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
               >
-                <a href="#">edit</a>
-                <a href="#">delete</a>
+                <button>
+                  <i class="fas fa-edit" title="edit"></i>
+                </button>
+                <button>
+                  <i class="fas fa-trash-alt" title="delete"></i>
+                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </main>
-    <footer>This is footer</footer>
+    <!-- <footer>This is footer</footer> -->
     <script src="index.js"></script>
   </body>
 </html>
