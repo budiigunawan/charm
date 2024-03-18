@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charm</title>
+    <meta
+      name="description"
+      content="Customer Relationship Management that makes you and your customer happy."
+    />
+    <meta name="author" content="Budi Indra Gunawan" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <form>
+        <div>
+          <label for="fullname">Full name</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Input fullname"
+          />
+        </div>
+        <div>
+          <label for="avatar">Avatar Url</label>
+          <input
+            type="text"
+            id="avatar"
+            name="avatar"
+            placeholder="Input avatar url"
+          />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Input email address"
+          />
+        </div>
+        <div>
+          <label for="phone">Phone Number</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Input phone number"
+          />
+        </div>
+        <div>
+          <label for="labels">Choose labels</label>
+          <div>
+            <input type="checkbox" name="labels" id="family" value="family" />
+            <label for="family">Family</label>
+          </div>
+          <div>
+            <input type="checkbox" name="labels" id="friend" value="friend" />
+            <label for="friend">Friend</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="labels"
+              id="customer"
+              value="customer"
+            />
+            <label for="customer">Customer</label>
+          </div>
+          <div>
+            <input type="checkbox" name="labels" id="work" value="work" />
+            <label for="work">Work</label>
+          </div>
+        </div>
+        <div>
+          <label for="birthday">Birthday</label>
+          <input type="date" name="birthday" id="birthday" />
+        </div>
+        <div>
+          <label for="notes">Notes</label>
+          <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
