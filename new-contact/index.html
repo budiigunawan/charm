@@ -9,7 +9,7 @@
       content="Customer Relationship Management that makes you and your customer happy."
     />
     <meta name="author" content="Budi Indra Gunawan" />
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -17,11 +17,14 @@
     />
   </head>
   <body>
-    <main>
-      <form>
+    <main class="py-32">
+      <form
+        class="flex flex-col flex-wrap gap-3 max-w-lg p-16 rounded-md m-auto bg-gray-100"
+      >
         <div>
-          <label for="fullname">Full name</label>
+          <label class="block font-bold mb-2" for="fullname">Full name</label>
           <input
+            class="p-3 border border-black rounded text-sm w-full"
             type="text"
             id="fullname"
             name="fullname"
@@ -29,8 +32,9 @@
           />
         </div>
         <div>
-          <label for="avatar">Avatar Url</label>
+          <label class="block font-bold mb-2" for="avatar">Avatar Url</label>
           <input
+            class="p-3 border border-black rounded text-sm w-full"
             type="text"
             id="avatar"
             name="avatar"
@@ -38,8 +42,9 @@
           />
         </div>
         <div>
-          <label for="email">Email</label>
+          <label class="block font-bold mb-2" for="email">Email</label>
           <input
+            class="p-3 border border-black rounded text-sm w-full"
             type="email"
             name="email"
             id="email"
@@ -47,16 +52,17 @@
           />
         </div>
         <div>
-          <label for="phone">Phone Number</label>
+          <label class="block font-bold mb-2" for="phone">Phone Number</label>
           <input
-            type="text"
+            class="p-3 border border-black rounded text-sm w-full"
+            type="tel"
             name="phone"
             id="phone"
             placeholder="Input phone number"
           />
         </div>
         <div>
-          <label for="labels">Choose labels</label>
+          <label class="block font-bold mb-2" for="labels">Choose labels</label>
           <div>
             <input type="checkbox" name="labels" id="family" value="family" />
             <label for="family">Family</label>
@@ -80,12 +86,37 @@
           </div>
         </div>
         <div>
-          <label for="birthday">Birthday</label>
-          <input type="date" name="birthday" id="birthday" />
+          <label class="block font-bold mb-2" for="birthday">Birthday</label>
+          <input
+            class="p-3 border border-black rounded text-sm w-full"
+            type="date"
+            name="birthday"
+            id="birthday"
+          />
         </div>
         <div>
-          <label for="notes">Notes</label>
-          <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+          <label class="block font-bold mb-2" for="notes">Notes</label>
+          <textarea
+            class="p-3 border border-black rounded text-sm w-full"
+            name="notes"
+            id="notes"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button
+            type="button"
+            class="text-sm font-semibold leading-6 text-gray-900"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Save
+          </button>
         </div>
       </form>
     </main>
