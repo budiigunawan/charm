@@ -1,4 +1,4 @@
-const contacts = [
+let contacts = [
   {
     id: 1,
     fullName: 'Budi Indra Gunawan',
@@ -70,6 +70,11 @@ function editContact(contactId, payload) {
   contacts[contactIndex] = { id: contactId, ...payload };
 }
 
+function deleteContact(contactId) {
+  const newContacts = contacts.filter((contact) => contact.id !== contactId);
+  contacts = newContacts;
+}
+
 addContact({
   fullName: 'Dita Lestari',
   email: 'ditalestari@mail.com',
@@ -89,5 +94,7 @@ editContact(1, {
   avatar: 'https://i.pravatar.cc/150?img=53',
   notes: '',
 });
+
+deleteContact(2);
 
 renderContacts();
