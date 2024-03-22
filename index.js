@@ -75,6 +75,13 @@ function deleteContact(contactId) {
   contacts = newContacts;
 }
 
+function searchContact(keyword) {
+  const result = contacts.filter((contact) =>
+    contact.fullName.toLowerCase().includes(keyword.toLowerCase())
+  );
+  console.log(result, 'search result');
+}
+
 addContact({
   fullName: 'Dita Lestari',
   email: 'ditalestari@mail.com',
@@ -94,6 +101,8 @@ editContact(1, {
   avatar: 'https://i.pravatar.cc/150?img=53',
   notes: '',
 });
+
+searchContact('doe');
 
 deleteContact(2);
 
