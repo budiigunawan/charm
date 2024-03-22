@@ -60,6 +60,18 @@ function addContact(payload) {
   });
 }
 
+function renderContacts() {
+  for (let index = 0; index < contacts.length; index++) {
+    const contact = contacts[index];
+    const age = getAge(contact.birthday);
+    const ageCategory = age > 30 ? 'is old enough' : 'is still young';
+    console.log(
+      `${contact.id}. ${contact.fullName} (${contact.phoneNumber}) ${ageCategory} `
+    );
+  }
+  console.log('');
+}
+
 addContact({
   fullName: 'Dita Lestari',
   email: 'ditalestari@mail.com',
@@ -70,4 +82,4 @@ addContact({
   notes: '',
 });
 
-console.log(contacts, 'iki new contacts');
+renderContacts();
