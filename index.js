@@ -43,3 +43,31 @@ function getAge(dateString) {
 
   return age;
 }
+
+function addContact(payload) {
+  const { fullName, email, phoneNumber, labels, birthday, avatar, notes } =
+    payload;
+  let lastId = contacts[contacts.length - 1].id;
+  contacts.push({
+    id: lastId + 1,
+    fullName,
+    email,
+    phoneNumber,
+    labels,
+    birthday,
+    avatar,
+    notes,
+  });
+}
+
+addContact({
+  fullName: 'Dita Lestari',
+  email: 'ditalestari@mail.com',
+  phoneNumber: '6281234567890',
+  labels: ['Family'],
+  birthday: '1996-03-18T03:24:00',
+  avatar: 'https://i.pravatar.cc/150?img=53',
+  notes: '',
+});
+
+console.log(contacts, 'iki new contacts');
