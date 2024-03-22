@@ -45,18 +45,10 @@ function getAge(dateString) {
 }
 
 function addContact(payload) {
-  const { fullName, email, phoneNumber, labels, birthday, avatar, notes } =
-    payload;
   let lastId = contacts[contacts.length - 1].id;
   contacts.push({
     id: lastId + 1,
-    fullName,
-    email,
-    phoneNumber,
-    labels,
-    birthday,
-    avatar,
-    notes,
+    ...payload,
   });
 }
 
@@ -72,12 +64,28 @@ function renderContacts() {
   console.log('');
 }
 
+function editContact(contactId, payload) {
+  const contactIndex = contacts.findIndex((obj) => obj.id === contactId);
+
+  contacts[contactIndex] = { id: contactId, ...payload };
+}
+
 addContact({
   fullName: 'Dita Lestari',
   email: 'ditalestari@mail.com',
   phoneNumber: '6281234567890',
   labels: ['Family'],
   birthday: '1996-03-18T03:24:00',
+  avatar: 'https://i.pravatar.cc/150?img=53',
+  notes: '',
+});
+
+editContact(1, {
+  fullName: 'Budi I Gunawan',
+  email: 'budi.igunawan@mail.com',
+  phoneNumber: '6281234567890',
+  labels: ['Family'],
+  birthday: '1996-07-31T03:24:00',
   avatar: 'https://i.pravatar.cc/150?img=53',
   notes: '',
 });
