@@ -5,7 +5,7 @@ const contacts = [
     email: 'budigunawan@mail.com',
     phoneNumber: '6281234567890',
     labels: ['Family'],
-    birthday: '1995-12-17T03:24:00',
+    birthday: '1996-07-31T03:24:00',
     avatar: 'https://i.pravatar.cc/150?img=53',
     notes: '',
   },
@@ -31,5 +31,15 @@ const contacts = [
   },
 ];
 
-console.log(contacts, 'this is contacts');
-console.log(contacts[0], 'first index of contacts');
+function getAge(dateString) {
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  const month = today.getMonth() - birthDate.getMonth();
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
+}
