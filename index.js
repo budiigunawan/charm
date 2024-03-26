@@ -44,11 +44,11 @@ function getAge(dateString) {
   return age;
 }
 
-function addContact(payload) {
+function addContact(contactPayload) {
   let lastId = contacts[contacts.length - 1].id;
   contacts.push({
     id: lastId + 1,
-    ...payload,
+    ...contactPayload,
   });
 }
 
@@ -64,10 +64,10 @@ function renderContacts() {
   console.log("");
 }
 
-function editContact(contactId, payload) {
+function editContact(contactId, contactPayload) {
   const contactIndex = contacts.findIndex((obj) => obj.id === contactId);
 
-  contacts[contactIndex] = { id: contactId, ...payload };
+  contacts[contactIndex] = { id: contactId, ...contactPayload };
 }
 
 function deleteContact(contactId) {
