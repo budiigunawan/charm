@@ -1,21 +1,21 @@
 const initialContacts = [
   {
     id: 1,
-    fullName: "Budi Indra Gunawan",
+    fullName: "Budi Gunawan",
     email: "budigunawan@mail.com",
-    phoneNumber: "6281234567890",
+    phoneNumber: "+6281234567890",
     label: "Family",
-    birthday: "1996-07-31T03:24:00",
-    avatar: "https://i.pravatar.cc/150?img=53",
+    birthdate: "1996-07-30T17:00:00.000Z",
+    avatar: "https://avatars.githubusercontent.com/u/40841245?v=4",
     notes: "",
   },
   {
     id: 2,
     fullName: "John Doe",
     email: "johndoe@mail.com",
-    phoneNumber: "6285712345678",
+    phoneNumber: "+6285712345678",
     label: "Friend",
-    birthday: "1995-12-17T03:24:00",
+    birthdate: "1996-07-30T17:00:00.000Z",
     avatar: "https://i.pravatar.cc/150?img=56",
     notes: "",
   },
@@ -23,9 +23,9 @@ const initialContacts = [
     id: 3,
     fullName: "Jane Doe",
     email: "janedoe@mail.com",
-    phoneNumber: "6289876543210",
+    phoneNumber: "+6289876543210",
     label: "Work",
-    birthday: "1995-12-17T03:24:00",
+    birthdate: "1996-07-30T17:00:00.000Z",
     avatar: "https://i.pravatar.cc/150?img=45",
     notes: "",
   },
@@ -52,9 +52,9 @@ const renderContacts = () => {
   getInitialContacts();
   const contacts = getContacts();
 
-  const contactsContainer = document.getElementById("contactsContainer");
+  const contactsTableBody = document.getElementById("contactsTableBody");
 
-  contactsContainer.innerHTML = "";
+  contactsTableBody.innerHTML = "";
 
   contacts.forEach((contact) => {
     const contactRow = `
@@ -91,7 +91,9 @@ const renderContacts = () => {
     <td
       class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
     >
-      31 Dec 1999
+      ${new Date(contact.birthdate).toLocaleString("id-ID", {
+        dateStyle: "medium",
+      })}
     </td>
     <td
       class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
@@ -102,5 +104,9 @@ const renderContacts = () => {
     </td>
   </tr>
     `;
+
+    contactsTableBody.innerHTML += contactRow;
   });
 };
+
+renderContacts();
