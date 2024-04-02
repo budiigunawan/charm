@@ -89,7 +89,7 @@ const renderContacts = () => {
     <td
       class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
     >
-      <a href="/detail/?id=1">
+      <a href="/detail/?id=${contact.id}">
         <i class="fas fa-edit" title="edit"></i>
       </a>
     </td>
