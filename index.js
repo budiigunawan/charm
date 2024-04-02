@@ -1,3 +1,5 @@
+const searchInputElement = document.getElementById("search-input");
+
 const initialContacts = [
   {
     id: 1,
@@ -34,20 +36,38 @@ const initialContacts = [
 const setInitialContacts = () => {
   const contacts = getContacts();
 
-  if (!contacts) {
+  if (contacts.length === 0) {
     setContacts(initialContacts);
   }
 };
+
+function searchContacts(contacts, keyword) {
+  searchInputElement.value = keyword;
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.fullName.toLowerCase().includes(keyword.toLowerCase()),
+  );
+
+  return filteredContacts;
+}
 
 const renderContacts = () => {
   setInitialContacts();
   const contacts = getContacts();
 
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  const keyword = params.get("q");
+
   const contactsTableBody = document.getElementById("contactsTableBody");
 
   contactsTableBody.innerHTML = "";
 
-  contacts.forEach((contact) => {
+  const contactsToRender = keyword
+    ? searchContacts(contacts, keyword)
+    : contacts;
+
+  contactsToRender.forEach((contact) => {
     const contactRow = `
     <tr>
     <td
