@@ -3,16 +3,6 @@ const searchInputElement = document.getElementById("search-input");
 const initialContacts = [
   {
     id: 1,
-    fullName: "Budi Gunawan",
-    email: "budigunawan@mail.com",
-    phoneNumber: "+6281234567890",
-    label: "Family",
-    birthdate: "1996-07-30T17:00:00.000Z",
-    avatar: "https://avatars.githubusercontent.com/u/40841245?v=4",
-    notes: "",
-  },
-  {
-    id: 2,
     fullName: "John Doe",
     email: "johndoe@mail.com",
     phoneNumber: "+6285712345678",
@@ -22,7 +12,7 @@ const initialContacts = [
     notes: "",
   },
   {
-    id: 3,
+    id: 2,
     fullName: "Jane Doe",
     email: "janedoe@mail.com",
     phoneNumber: "+6289876543210",
