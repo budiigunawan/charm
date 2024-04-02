@@ -51,6 +51,16 @@ function searchContacts(contacts, keyword) {
   return filteredContacts;
 }
 
+function filterContactsByLabel(contacts, label) {
+  const filteredContactsByLabel = contacts.filter(
+    (contact) => contact.label.toLowerCase() === label,
+  );
+
+  console.log(contacts, "ct");
+
+  return filteredContactsByLabel;
+}
+
 const renderContacts = () => {
   setInitialContacts();
   const contacts = getContacts();
@@ -58,14 +68,22 @@ const renderContacts = () => {
   const queryString = window.location.search;
   const params = new URLSearchParams(queryString);
   const keyword = params.get("q");
+  const labelFilter = params.get("tag");
 
   const contactsTableBody = document.getElementById("contactsTableBody");
 
   contactsTableBody.innerHTML = "";
 
-  const contactsToRender = keyword
-    ? searchContacts(contacts, keyword)
-    : contacts;
+  let contactsToRender = [];
+
+  if (keyword) {
+    contactsToRender = searchContacts(contacts, keyword);
+  } else if (labelFilter) {
+    console.log(labelFilter);
+    contactsToRender = filterContactsByLabel(contacts, labelFilter);
+  } else {
+    contactsToRender = contacts;
+  }
 
   contactsToRender.forEach((contact) => {
     const contactRow = `
