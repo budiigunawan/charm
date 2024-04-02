@@ -1,21 +1,23 @@
-let contacts = [
+const searchInputElement = document.getElementById("search-input");
+
+const initialContacts = [
   {
     id: 1,
-    fullName: "Budi Indra Gunawan",
+    fullName: "Budi Gunawan",
     email: "budigunawan@mail.com",
-    phoneNumber: "6281234567890",
-    labels: ["Family"],
-    birthday: "1996-07-31T03:24:00",
-    avatar: "https://i.pravatar.cc/150?img=53",
+    phoneNumber: "+6281234567890",
+    label: "Family",
+    birthdate: "1996-07-30T17:00:00.000Z",
+    avatar: "https://avatars.githubusercontent.com/u/40841245?v=4",
     notes: "",
   },
   {
     id: 2,
     fullName: "John Doe",
     email: "johndoe@mail.com",
-    phoneNumber: "6285712345678",
-    labels: ["Friend"],
-    birthday: "1995-12-17T03:24:00",
+    phoneNumber: "+6285712345678",
+    label: "Friend",
+    birthdate: "1996-07-30T17:00:00.000Z",
     avatar: "https://i.pravatar.cc/150?img=56",
     notes: "",
   },
@@ -23,87 +25,99 @@ let contacts = [
     id: 3,
     fullName: "Jane Doe",
     email: "janedoe@mail.com",
-    phoneNumber: "6289876543210",
-    labels: ["Work"],
-    birthday: "1995-12-17T03:24:00",
+    phoneNumber: "+6289876543210",
+    label: "Work",
+    birthdate: "1996-07-30T17:00:00.000Z",
     avatar: "https://i.pravatar.cc/150?img=45",
     notes: "",
   },
 ];
 
-function getAge(dateString) {
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  const month = today.getMonth() - birthDate.getMonth();
-  let age = today.getFullYear() - birthDate.getFullYear();
+const setInitialContacts = () => {
+  const contacts = getContacts();
 
-  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+  if (contacts.length === 0) {
+    setContacts(initialContacts);
   }
+};
 
-  return age;
-}
+function searchContacts(contacts, keyword) {
+  searchInputElement.value = keyword;
 
-function addContact(contactPayload) {
-  let lastId = contacts[contacts.length - 1].id;
-  contacts.push({
-    id: lastId + 1,
-    ...contactPayload,
-  });
-}
-
-function renderContacts() {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
-    const age = getAge(contact.birthday);
-    const ageCategory = age > 30 ? "is old enough" : "is still young";
-    console.log(
-      `${contact.id}. ${contact.fullName} (${contact.phoneNumber}) ${ageCategory} `
-    );
-  }
-  console.log("");
-}
-
-function editContact(contactId, contactPayload) {
-  const contactIndex = contacts.findIndex((obj) => obj.id === contactId);
-
-  contacts[contactIndex] = { id: contactId, ...contactPayload };
-}
-
-function deleteContact(contactId) {
-  const newContacts = contacts.filter((contact) => contact.id !== contactId);
-  contacts = newContacts;
-}
-
-function searchContact(keyword) {
-  const result = contacts.filter((contact) =>
-    contact.fullName.toLowerCase().includes(keyword.toLowerCase())
+  const filteredContacts = contacts.filter((contact) =>
+    contact.fullName.toLowerCase().includes(keyword.toLowerCase()),
   );
-  console.log(result, "search result");
+
+  return filteredContacts;
 }
 
-addContact({
-  fullName: "Dita Lestari",
-  email: "ditalestari@mail.com",
-  phoneNumber: "6281234567890",
-  labels: ["Family"],
-  birthday: "1996-03-18T03:24:00",
-  avatar: "https://i.pravatar.cc/150?img=53",
-  notes: "",
-});
+const renderContacts = () => {
+  setInitialContacts();
+  const contacts = getContacts();
 
-editContact(1, {
-  fullName: "Budi I Gunawan",
-  email: "budi.igunawan@mail.com",
-  phoneNumber: "6281234567890",
-  labels: ["Family"],
-  birthday: "1996-07-31T03:24:00",
-  avatar: "https://i.pravatar.cc/150?img=53",
-  notes: "",
-});
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+  const keyword = params.get("q");
 
-searchContact("doe");
+  const contactsTableBody = document.getElementById("contactsTableBody");
 
-deleteContact(2);
+  contactsTableBody.innerHTML = "";
+
+  const contactsToRender = keyword
+    ? searchContacts(contacts, keyword)
+    : contacts;
+
+  contactsToRender.forEach((contact) => {
+    const contactRow = `
+    <tr>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4 flex items-center"
+    >
+      <img
+        src="${contact.avatar}"
+        alt="${contact.fullName}"
+        class="h-12 w-12 rounded-full border"
+      />
+      <span class="ml-3 font-bold">${contact.fullName}</span>
+    </td>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
+    >
+      ${contact.email}
+    </td>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
+    >
+      ${contact.phoneNumber}
+    </td>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
+    >
+      <div
+        class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-sm font-regular border-transparent bg-teal-200"
+      >
+        ${contact.label}
+      </div>
+    </td>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
+    >
+      ${new Date(contact.birthdate).toLocaleString("id-ID", {
+        dateStyle: "medium",
+      })}
+    </td>
+    <td
+      class="border-t-0 border-l-0 border-r-0 text-sm whitespace-nowrap py-4"
+    >
+      <a href="/detail/?id=${contact.id}">
+        <i class="fas fa-edit" title="edit"></i>
+      </a>
+    </td>
+  </tr>
+    `;
+
+    contactsTableBody.innerHTML += contactRow;
+  });
+};
 
 renderContacts();
