@@ -1,4 +1,7 @@
 const editContactFormElement = document.getElementById("edit-contact-form");
+const deleteContactButtonElement = document.getElementById(
+  "deleteContactButton",
+);
 
 const renderContactById = () => {
   const contacts = getContacts();
@@ -51,5 +54,21 @@ const editContact = (event) => {
   goToHomePage();
 };
 
+const deleteContact = () => {
+  if (confirm(`Are you sure? You can't undo this action afterwards.`)) {
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+    const id = Number(params.get("id"));
+
+    const contacts = getContacts();
+
+    const newContacts = contacts.filter((contact) => contact.id !== id);
+
+    setContacts(newContacts);
+    goToHomePage();
+  }
+};
+
 renderContactById();
 editContactFormElement.addEventListener("submit", editContact);
+deleteContactButtonElement.addEventListener("click", deleteContact);
